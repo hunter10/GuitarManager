@@ -13,21 +13,18 @@ class InstrumentSpec
     var builder:Builder?
     var model:String? = ""
     var type:Type?
-    var numStrings:Int?
     var backWood:Wood?
     var topWood:Wood?
     
     init(_ builder:Builder,
          _ model:String,
          _ type:Type,
-         _ numStrings:Int,
          _ backWood:Wood,
          _ topWood:Wood)
     {
         self.builder = builder
         self.model = model
         self.type = type
-        self.numStrings = numStrings
         self.backWood = backWood
         self.topWood = topWood
     }
@@ -39,7 +36,6 @@ class InstrumentSpec
         result += "Builder:\(self.builder!)\n"
         result += "model:\(self.model!)\n"
         result += "type:\(self.type!)\n"
-        result += "numStrings:\(self.numStrings!)\n"
         result += "backWood:\(self.backWood!)\n"
         result += "topWood:\(self.topWood!)\n"
         
@@ -60,15 +56,42 @@ class InstrumentSpec
         return type
     }
     
-    func getNumStrings() -> Int? {
-        return numStrings
-    }
-    
     func getBackWood()->Wood? {
         return backWood
     }
     
     func getTopWood()->Wood? {
         return topWood
+    }
+    
+    func matches(_ otherSpec:InstrumentSpec)->Bool{
+        
+        if (builder != otherSpec.getBuilder()){
+            print("builder false")
+            return false
+        }
+    
+        if( (model == nil) || (model?.isEmpty)! ||
+            (model != otherSpec.getModel()) ){
+            print("model false")
+            return false
+        }
+        
+        if(type != otherSpec.getType()){
+            print("type false")
+            return false
+        }
+    
+        if (backWood != otherSpec.getBackWood()){
+            print("backwood false")
+            return false
+        }
+        
+        if (topWood != otherSpec.getTopWood()){
+            print("topwood false")
+            return false
+        }
+        
+        return true
     }
 }

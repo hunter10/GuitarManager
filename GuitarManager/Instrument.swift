@@ -9,13 +9,20 @@
 import Foundation
 
 class Instrument {
-    var serialNumber:String? = ""
-    var price:Double? = 0
-    var spec:GuitarSpec
+    var serialNumber:String?
+    var price:Double?
+    var spec:InstrumentSpec?
+    
+    init()
+    {
+        self.serialNumber = ""
+        self.price = 0
+        self.spec = nil
+    }
     
     init(_ serialNumber:String,
          _ price:Double,
-         _ spec:GuitarSpec)
+         _ spec:InstrumentSpec)
     {
         self.serialNumber = serialNumber
         self.price = price
@@ -28,7 +35,7 @@ class Instrument {
         
         result += "SerialNumber:\(self.serialNumber)\n"
         result += "Price:\(self.price)\n"
-        result += spec.showPrint()
+        result += spec!.showPrint()
         
         return result
     }
@@ -45,7 +52,7 @@ class Instrument {
         price = Double(newPrice)
     }
     
-    func getSpec() -> GuitarSpec {
-        return spec
+    func getSpec() -> InstrumentSpec {
+        return spec!
     }
 }

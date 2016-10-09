@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+enum Style{
+    case A, F
+    
+    func toString() -> String? {
+        switch self {
+        case .A: return "A"
+        case .F: return "F"
+        }
+    }
+}

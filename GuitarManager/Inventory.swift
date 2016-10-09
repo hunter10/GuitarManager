@@ -10,43 +10,55 @@ import Foundation
 
 class Inventory{
     
-    var guitars = [Guitar]()
+    var inventory = [Instrument?]()
     
-    func addGuitar(SerialNumber serialNumber:String,
-                   Price price:Double,
-                   Builder builder:Builder,
-                   Model model:String,
-                   Type type:Type,
-                   NumStrings numStrings:Int,
-                   BackWood backWood:Wood,
-                   TopWood topWood:Wood)
+    func addInstrument(SerialNumber serialNumber:String,
+                       Price price:Double,
+                       Spec spec:InstrumentSpec
+                      )
     {
-        let guitarSpec = GuitarSpec(builder, model, type, numStrings, backWood, topWood)
-        let guitar = Guitar(serialNumber, price, guitarSpec)
-        guitars += [guitar]
+        var instrument:Instrument? = nil
+        
+        if spec is GuitarSpec {
+            instrument = Guitar(serialNumber, price, (spec as! GuitarSpec))
+            
+        } else {
+            instrument = Mandolin(serialNumber, price, (spec as! MandolinSpec))
+        }
+        
+        inventory += [instrument]
     }
     
-    func getGuitar(_ serialNumber:String) -> Guitar?{
-        for guitar in guitars{
-            if (guitar.getSerialNumber() == serialNumber){
-                return guitar
+    func get(_ serialNumber:String) -> Instrument?{
+        for instrument in inventory{
+            if (instrument?.getSerialNumber() == serialNumber){
+                return instrument
             }
         }
         return nil
     }
     
     func search(_ searchSpec:GuitarSpec) -> [Guitar]?{
-        
         var matchingGuitars = [Guitar]()
-        
-        for guitar in guitars{
-            
-            if guitar.getSpec().matches(searchSpec){
-                matchingGuitars += [guitar]
+        for guitar in inventory{
+            if (guitar?.getSpec().matches(searchSpec))!{
+                matchingGuitars += [guitar as! Guitar]
             }
         }
         
         return matchingGuitars
+    }
+    
+    func search(_ searchSpec:MandolinSpec) -> [Mandolin]?{
+        var matchingMandolins = [Mandolin]()
+        for mandolin in inventory {
+            
+            if (mandolin?.getSpec().matches(searchSpec))!{
+                matchingMandolins += [mandolin as! Mandolin]
+            }
+        }
+    
+        return matchingMandolins
     }
     
 }

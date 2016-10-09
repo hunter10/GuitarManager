@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class Mandolin : Instrument {
+    
+    init(_ serialNumber:String,
+         _ price:Double,
+         _ spec:MandolinSpec)
+    {
+        super.init(serialNumber, price, spec)
+    }
+}

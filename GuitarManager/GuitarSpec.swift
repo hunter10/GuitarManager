@@ -9,103 +9,41 @@
 import Foundation
 
 class GuitarSpec : InstrumentSpec{
-//    var builder:Builder?
-//    var model:String? = ""
-//    var type:Type?
-//    var numStrings:Int?
-//    var backWood:Wood?
-//    var topWood:Wood?
     
-    override init(_ builder:Builder,
+    var numStrings: Int?
+    
+    init(_ builder:Builder,
          _ model:String,
          _ type:Type,
          _ numStrings:Int,
          _ backWood:Wood,
          _ topWood:Wood)
     {
-        super.init(builder, model, type, numStrings, backWood, topWood)
-        
-//        self.builder = builder
-//        self.model = model
-//        self.type = type
-//        self.numStrings = numStrings
-//        self.backWood = backWood
-//        self.topWood = topWood
+        super.init(builder, model, type, backWood, topWood)
+        self.numStrings = numStrings
     }
     
     override func showPrint()->String
     {
         var result = ""
         
-        result += "Builder:\(self.builder!)\n"
-        result += "model:\(self.model!)\n"
-        result += "type:\(self.type!)\n"
+        result += super.showPrint()
         result += "numStrings:\(self.numStrings!)\n"
-        result += "backWood:\(self.backWood!)\n"
-        result += "topWood:\(self.topWood!)\n"
-     
-        //result += "getBuilder() : \(getBuilder()!)"
         
         return result
     }
     
-//    func getBuilder()->Builder? {
-//        return builder
-//    }
-//    
-//    func getModel()->String? {
-//        return model
-//    }
-//    
-//    func getType()->Type? {
-//        return type
-//    }
-//    
-//    func getNumStrings() -> Int? {
-//        return numStrings
-//    }
-//    
-//    func getBackWood()->Wood? {
-//        return backWood
-//    }
-//    
-//    func getTopWood()->Wood? {
-//        return topWood
-//    }
-    
-    func matches(_ otherSpec:GuitarSpec)->Bool{
-        
-        //print("builder:\(builder!) other builder:\(otherSpec.getBuilder()!)")
-        if (builder != otherSpec.getBuilder()){
-            print("builder false")
+    func getNumStrings() -> Int? {
+        return numStrings
+    }
+   
+    override func matches(_ otherSpec:InstrumentSpec) -> Bool{
+        if  !super.matches(otherSpec) {
             return false
         }
         
-        //print("model:\(model!) other model:\(otherSpec.getModel()!)")
-        if( (model == nil) || (model?.isEmpty)! ||
-            (model != otherSpec.getModel()) ){
-            print("model false")
-            return false
-        }
-        
-        //print("type:\(type!) other type:\(otherSpec.getType()!)")
-        if(type != otherSpec.getType()){
-            //print("type false")
-            return false
-        }
-        
-        if numStrings != otherSpec.getNumStrings(){
-            return false
-        }
-        
-        //print("backWood:\(backWood!) other backWood:\(otherSpec.getBackWood()!)")
-        if (backWood != otherSpec.getBackWood()){
-            //print("backwood false")
-            return false
-        }
-        
-        //print("backWood:\(backWood!) other backWood:\(otherSpec.getBackWood()!)")
-        if (topWood != otherSpec.getTopWood()){
+        let spec = otherSpec as! GuitarSpec
+        if numStrings != spec.getNumStrings(){
             return false
         }
 
