@@ -12,6 +12,9 @@
 		5A0D4CB81D7C138D00E2D3A0 /* Wood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D4CB71D7C138D00E2D3A0 /* Wood.swift */; };
 		5A10C6751DA8D212003F2A95 /* InstrumentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A10C6741DA8D212003F2A95 /* InstrumentSpec.swift */; };
 		5A10C6771DA8D421003F2A95 /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A10C6761DA8D421003F2A95 /* Instrument.swift */; };
+		5A10C6791DA93BFB003F2A95 /* MandolinSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A10C6781DA93BFB003F2A95 /* MandolinSpec.swift */; };
+		5A10C67B1DA93C97003F2A95 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A10C67A1DA93C97003F2A95 /* Style.swift */; };
+		5A10C67D1DA93E28003F2A95 /* Mandolin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A10C67C1DA93E28003F2A95 /* Mandolin.swift */; };
 		5A4299451D72DD0400A8BBC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4299441D72DD0400A8BBC6 /* main.swift */; };
 		5A42994C1D72DD3400A8BBC6 /* Guitar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A42994B1D72DD3400A8BBC6 /* Guitar.swift */; };
 		5A42994E1D73B7C800A8BBC6 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A42994D1D73B7C800A8BBC6 /* Inventory.swift */; };
@@ -36,6 +39,9 @@
 		5A0D4CB71D7C138D00E2D3A0 /* Wood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wood.swift; sourceTree = "<group>"; };
 		5A10C6741DA8D212003F2A95 /* InstrumentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentSpec.swift; sourceTree = "<group>"; };
 		5A10C6761DA8D421003F2A95 /* Instrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
+		5A10C6781DA93BFB003F2A95 /* MandolinSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandolinSpec.swift; sourceTree = "<group>"; };
+		5A10C67A1DA93C97003F2A95 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		5A10C67C1DA93E28003F2A95 /* Mandolin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mandolin.swift; sourceTree = "<group>"; };
 		5A4299411D72DD0400A8BBC6 /* GuitarManager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GuitarManager; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4299441D72DD0400A8BBC6 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5A42994B1D72DD3400A8BBC6 /* Guitar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guitar.swift; sourceTree = "<group>"; };
@@ -75,11 +81,14 @@
 			children = (
 				5A4299441D72DD0400A8BBC6 /* main.swift */,
 				5A42994B1D72DD3400A8BBC6 /* Guitar.swift */,
+				5A10C67C1DA93E28003F2A95 /* Mandolin.swift */,
 				5A42994D1D73B7C800A8BBC6 /* Inventory.swift */,
 				5A0D4CB31D7C0FD800E2D3A0 /* Type.swift */,
 				5A0D4CB51D7C129300E2D3A0 /* Builder.swift */,
 				5A0D4CB71D7C138D00E2D3A0 /* Wood.swift */,
+				5A10C67A1DA93C97003F2A95 /* Style.swift */,
 				5A7530531D854C7F00B08D0C /* GuitarSpec.swift */,
+				5A10C6781DA93BFB003F2A95 /* MandolinSpec.swift */,
 				5A10C6741DA8D212003F2A95 /* InstrumentSpec.swift */,
 				5A10C6761DA8D421003F2A95 /* Instrument.swift */,
 			);
@@ -145,15 +154,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A10C6791DA93BFB003F2A95 /* MandolinSpec.swift in Sources */,
 				5A0D4CB81D7C138D00E2D3A0 /* Wood.swift in Sources */,
 				5A42994E1D73B7C800A8BBC6 /* Inventory.swift in Sources */,
 				5A4299451D72DD0400A8BBC6 /* main.swift in Sources */,
 				5A10C6751DA8D212003F2A95 /* InstrumentSpec.swift in Sources */,
 				5A7530541D854C7F00B08D0C /* GuitarSpec.swift in Sources */,
 				5A42994C1D72DD3400A8BBC6 /* Guitar.swift in Sources */,
+				5A10C67D1DA93E28003F2A95 /* Mandolin.swift in Sources */,
 				5A0D4CB41D7C0FD800E2D3A0 /* Type.swift in Sources */,
 				5A10C6771DA8D421003F2A95 /* Instrument.swift in Sources */,
 				5A0D4CB61D7C129300E2D3A0 /* Builder.swift in Sources */,
+				5A10C67B1DA93C97003F2A95 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
