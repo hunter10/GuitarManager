@@ -10,55 +10,46 @@ import Foundation
 
 class Inventory{
     
-    var inventory = [Instrument?]()
+    var inventory = [Instrument]()
     
     func addInstrument(SerialNumber serialNumber:String,
                        Price price:Double,
                        Spec spec:InstrumentSpec
                       )
     {
-        var instrument:Instrument? = nil
+        let instrument:Instrument = Instrument(SerialNumber:serialNumber, Price:price, Spec:spec)
+        inventory += [instrument]
+    }
+    
+    func  showList() -> String {
         
-        if spec is GuitarSpec {
-            instrument = Guitar(serialNumber, price, (spec as! GuitarSpec))
-            
-        } else {
-            instrument = Mandolin(serialNumber, price, (spec as! MandolinSpec))
+        var result = ""
+        for item in inventory
+        {
+            result += item.showPrint()
         }
         
-        inventory += [instrument]
+        return result
     }
     
     func get(_ serialNumber:String) -> Instrument?{
         for instrument in inventory{
-            if (instrument?.getSerialNumber() == serialNumber){
+            if (instrument.getSerialNumber() == serialNumber){
                 return instrument
             }
         }
         return nil
     }
     
-    func search(_ searchSpec:GuitarSpec) -> [Guitar]?{
-        var matchingGuitars = [Guitar]()
-        for guitar in inventory{
-            if (guitar?.getSpec().matches(searchSpec))!{
-                matchingGuitars += [guitar as! Guitar]
+    func search(_ searchSpec:InstrumentSpec) -> [Instrument]? {
+        var matchingInstruments = [Instrument]()
+        for instrument in inventory{
+            if(instrument.getSpec().matches(searchSpec)){
+                matchingInstruments += [instrument]
             }
         }
         
-        return matchingGuitars
+        return matchingInstruments
     }
-    
-    func search(_ searchSpec:MandolinSpec) -> [Mandolin]?{
-        var matchingMandolins = [Mandolin]()
-        for mandolin in inventory {
-            
-            if (mandolin?.getSpec().matches(searchSpec))!{
-                matchingMandolins += [mandolin as! Mandolin]
-            }
-        }
-    
-        return matchingMandolins
-    }
-    
+        
 }

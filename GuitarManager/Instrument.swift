@@ -9,9 +9,9 @@
 import Foundation
 
 class Instrument {
-    var serialNumber:String?
-    var price:Double?
-    var spec:InstrumentSpec?
+    private var serialNumber:String?
+    private var price:Double?
+    private var spec:InstrumentSpec?
     
     init()
     {
@@ -20,9 +20,9 @@ class Instrument {
         self.spec = nil
     }
     
-    init(_ serialNumber:String,
-         _ price:Double,
-         _ spec:InstrumentSpec)
+    init(SerialNumber serialNumber:String,
+         Price price:Double,
+         Spec spec:InstrumentSpec)
     {
         self.serialNumber = serialNumber
         self.price = price
@@ -33,9 +33,10 @@ class Instrument {
     {
         var result = ""
         
-        result += "SerialNumber:\(self.serialNumber)\n"
-        result += "Price:\(self.price)\n"
+        result += "SerialNumber:\(self.serialNumber!)\n"
+        result += "Price:\(self.price!)\n"
         result += spec!.showPrint()
+        result += "\n"
         
         return result
     }
